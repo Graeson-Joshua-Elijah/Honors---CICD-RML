@@ -1,5 +1,7 @@
+import sys, os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 import json
-import os
 import matplotlib.pyplot as plt
 import pandas as pd
 from ai_models.failure_prediction import predict_failure
