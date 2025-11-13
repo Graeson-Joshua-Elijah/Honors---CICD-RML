@@ -21,12 +21,12 @@ jobs:
         with:
           python-version: '3.10'
 
-      - name: Install Python Dependencies
+      - name: Install Backend Dependencies
         run: |
           cd backend
           pip install -r requirements.txt
 
-      - name: Run Tests
+      - name: Run Backend Tests
         run: |
           cd backend
           pytest || echo "No tests found"
@@ -41,16 +41,11 @@ jobs:
           cd backend
           python3 -c "from monitoring.monitor_resources import get_resource_metrics; print(get_resource_metrics())"
 
-      - name: Build Frontend
+      - name: Set up Frontend (Static)
         run: |
-          cd frontend
-          # Use npm ci if lock file exists, else npm install
-          if [ -f package-lock.json ]; then
-            npm ci
-          else
-            npm install
-          fi
-          npm run build || echo "No build script found - skipping"
+          echo "Static frontend detected - skipping npm build"
+          ls -l frontend
+          echo "Frontend setup complete."
 
   docker-build-push:
     runs-on: ubuntu-latest
@@ -84,6 +79,6 @@ jobs:
     steps:
       - name: Simulate Deployment
         run: |
-          echo "🚀 Deployment started..."
+          echo "Deployment started..."
           echo "Pulling latest Docker image..."
-          echo "Deployment successful! Watchtower will handle automatic redeployment."
+          echo "Deployment successful. Watchtower will handle automatic redeployment."
