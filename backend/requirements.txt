@@ -1,0 +1,17 @@
+scipy
+pandas
+joblib
+werkzeug
+itsdangerous
+click
+typing-extensions
+numpy==1.26.4
+scikit-learn==1.7.1
+torch==2.8.0
+torchvision==0.23.0
+flask==3.1.2
+psutil==5.9.5
+fastapi
+uvicorn
+requests
+matplotlib

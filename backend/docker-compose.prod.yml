@@ -1,0 +1,19 @@
+version: "3.8"
+
+services:
+  backend:
+    build: .
+    container_name: honors_backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    command: flask run --host=0.0.0.0 --port=5000
+
+  frontend:
+    image: nginx:latest
+    container_name: honors_frontend
+    ports:
+      - "8080:80"
+    volumes:
+      - ../frontend:/usr/share/nginx/html
