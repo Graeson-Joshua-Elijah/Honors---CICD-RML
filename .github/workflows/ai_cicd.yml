@@ -40,6 +40,11 @@ jobs:
         run: |
           cd backend
           python3 -c "from monitoring.monitor_resources import get_resource_metrics; print(get_resource_metrics())"
+      - name: Build Frontend
+        run: |
+            cd frontend
+            npm ci
+            npm run build
 
   docker-build-push:
     runs-on: ubuntu-latest
