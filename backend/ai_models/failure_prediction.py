@@ -1,9 +1,14 @@
 import pickle
 import numpy as np
 
-# Load trained reptile model
-with open("ai_models/reptile_model.pkl", "rb") as f:
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+MODEL_PATH = os.path.join(BASE_DIR, "reptile_model.pkl")
+
+with open(MODEL_PATH, "rb") as f:
     model = pickle.load(f)
+
 
 def predict_failure(features):
     """
