@@ -5,7 +5,7 @@ import json
 import matplotlib.pyplot as plt
 import pandas as pd
 from ai_models.failure_prediction import predict_failure
-from ai_models.resource_analysis import analyze_trends
+from ai_models.resource_analysis import analyze_resources as analyze_trends
 from ai_models.risk_scoring import calculate_risk
 
 # Create output folder
